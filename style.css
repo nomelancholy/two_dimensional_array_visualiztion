@@ -2,6 +2,16 @@
   margin: 0;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.app {
+  width: 70%;
+}
+
 .header {
   background: #57a958;
   text-align: left;
@@ -25,7 +35,16 @@
 }
 
 #editor {
+  width: 800px;
   height: 400px;
+}
+
+.output {
+  padding: 4px;
+  border: 2px solid gray;
+  min-height: 100px;
+  width: 99%;
+  resize: none;
 }
 
 .button-container {
@@ -40,10 +59,6 @@
   border: 0;
 }
 
-.output {
-  padding: 4px;
-  border: 2px solid gray;
-  min-height: 100px;
-  width: 99%;
-  resize: none;
+.visualiztion_section {
+  background: blue;
 }

@@ -1,11 +1,15 @@
-let editor;
+import App from "./App.js";
 
-const init = () => {
-  editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
-  editor.session.setMode("ace/mode/c_cpp");
+// let editor;
 
-  console.log("editor :>> ", editor);
-};
+// const init = () => {
+//   editor = ace.edit("editor");
+//   editor.setTheme("ace/theme/monokai");
+//   editor.session.setMode("ace/mode/c_cpp");
 
-init();
+//   console.log("editor :>> ", editor);
+// };
+
+// init();
+
+new App({ $app: document.querySelector(".app") });
