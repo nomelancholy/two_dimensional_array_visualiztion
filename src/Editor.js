@@ -1,21 +1,40 @@
-export default function Editor({ $app }) {
+export default function Editor({ $app, selectedLanguage }) {
   const $editor = document.createElement("div");
   $editor.className = "editor";
   $editor.id = "editor";
 
-  $app.appendChild($editor);
+  this.state = {
+    editor: "",
+    selectedLanguage,
+  };
+
+  this.setState = (nextState) => {
+    this.state = {
+      ...this.state,
+      ...nextState,
+    };
+
+    this.render();
+  };
 
   let editor = "";
 
-  const getAceEditor = () => {
+  this.render = () => {
+    editor.session.setMode(`ace/mode/${this.state.selectedLanguage}`);
+  };
+
+  $app.appendChild($editor);
+
+  const init = () => {
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/c_cpp");
+    editor.session.setMode(`ace/mode/${this.state.selectedLanguage}`);
+    this.state.editor = editor;
   };
 
-  getAceEditor();
+  init();
 
-  this.setEditor = () => {
-    return editor;
-  };
+  // this.setEditor = () => {
+  //   return editor;
+  // };
 }
